@@ -1,2 +1,3 @@
 # projektJava1
-Projekt na przedmiot wstęp do programowania w języku Java. Tomasz Kumor, Julian Cichor, Krzysztof Kasperek
+Projekt na przedmiot Wstęp do Programowania w Języku Java. 
+Projekt wykonali: Tomasz Kumor, Julian Cichor, Krzysztof Kasperek
