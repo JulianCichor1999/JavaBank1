@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Locale;
-
 public class KartaPlatnicza extends Osoba{
     private long numerKarty;
     private short PIN;
@@ -22,8 +20,8 @@ public class KartaPlatnicza extends Osoba{
         this.srodki = srodki;
     }
 
-    public long getNumerKarty() {
-        return numerKarty;
+    public String getNumerKarty() {
+        return String.format("%16d", numerKarty).replaceAll("\\s", "0");
     }
 
     public short getPIN() {
@@ -55,7 +53,7 @@ public class KartaPlatnicza extends Osoba{
 
     @Override
     public String toString() {
-        return String.format("%s %s, %d, %d, %.2f, %s",
+        return String.format("%s %s, %s, %d, %.2f, %s",
                 getImie(), getNazwisko(), getNumerKarty(), getPIN(), getSrodki(), getProducentKarty());
     }
 }

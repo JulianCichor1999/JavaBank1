@@ -17,17 +17,18 @@ public class Main {
                 String data = scanner.nextLine();
 
                 KartaPlatnicza kp = KartaPlatnicza.parseData(data);
-                if (kp.getProducentKarty().equals(Producenci.VISA)) {
-                    KartaPlatniczaVisa kpVisa = new KartaPlatniczaVisa(
-                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
-                    klienci.add(kpVisa);
-                } else if (kp.getProducentKarty().equals(Producenci.MASTERCARD)) {
-                    KartaPlatniczaMastercard kpMastercard = new KartaPlatniczaMastercard(
-                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
-                    klienci.add(kpMastercard);
-                } else {
-                    System.out.println("Nie wspieramy twojej karty!");
-                }
+                System.out.println(kp.getNumerKarty());
+//                if (kp.getProducentKarty().equals(Producenci.VISA)) {
+//                    KartaPlatniczaVisa kpVisa = new KartaPlatniczaVisa(
+//                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
+//                    klienci.add(kpVisa);
+//                } else if (kp.getProducentKarty().equals(Producenci.MASTERCARD)) {
+//                    KartaPlatniczaMastercard kpMastercard = new KartaPlatniczaMastercard(
+//                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
+//                    klienci.add(kpMastercard);
+//                } else {
+//                    System.out.println("Nie wspieramy twojej karty!");
+//                }
             }
 //            for(KartaPlatnicza kl: klienci)
 //            {
