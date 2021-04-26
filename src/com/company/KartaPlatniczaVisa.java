@@ -7,6 +7,11 @@ public class KartaPlatniczaVisa extends KartaPlatnicza{
         setProducentKarty(Producenci.VISA);
     }
 
+    public KartaPlatniczaVisa(String imie, String nazwisko, String numerKarty, short PIN, double srodki) {
+        super(imie,nazwisko,numerKarty,PIN,srodki);
+        setProducentKarty(Producenci.VISA);
+    }
+
     public void doliczSrodki(double noweSrodki) {
         srodki += noweSrodki;
     }

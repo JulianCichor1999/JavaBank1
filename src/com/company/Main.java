@@ -16,24 +16,28 @@ public class Main {
             {
                 String data = scanner.nextLine();
 
-                KartaPlatnicza kp = KartaPlatnicza.parseData(data);
-                System.out.println(kp.getNumerKarty());
-//                if (kp.getProducentKarty().equals(Producenci.VISA)) {
-//                    KartaPlatniczaVisa kpVisa = new KartaPlatniczaVisa(
-//                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
-//                    klienci.add(kpVisa);
-//                } else if (kp.getProducentKarty().equals(Producenci.MASTERCARD)) {
-//                    KartaPlatniczaMastercard kpMastercard = new KartaPlatniczaMastercard(
-//                            kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
-//                    klienci.add(kpMastercard);
-//                } else {
-//                    System.out.println("Nie wspieramy twojej karty!");
-//                }
+                String[] clients = data.split(",");
+                String imie = clients[0];
+                String nazwisko = clients[1];
+                long numerKonta = Long.parseLong(clients[2].replaceAll("\\s+", ""));
+                short numerPIN = Short.parseShort(clients[3]);
+                double srodki = Double.parseDouble(clients[4]);
+
+                if ("visa".equals(clients[5].toLowerCase())) {
+                    KartaPlatniczaVisa kpVisa = new KartaPlatniczaVisa(imie, nazwisko, numerKonta, numerPIN, srodki);
+                    klienci.add(kpVisa);
+                } else if ("mastercard".equals(clients[5].toLowerCase())) {
+                    KartaPlatniczaMastercard kpMastercard = new KartaPlatniczaMastercard(
+                            imie, nazwisko, numerKonta, numerPIN, srodki);
+                    klienci.add(kpMastercard);
+                } else {
+                    System.out.println("Nie wspieramy twojej karty!");
+                }
             }
-//            for(KartaPlatnicza kl: klienci)
-//            {
-//                System.out.println(kl.toString());
-//            }
+            for(KartaPlatnicza kl: klienci)
+            {
+                System.out.println(kl.toString());
+            }
             scanner.close();
         } catch (FileNotFoundException e) {
             System.out.print("Wystąpił błąd pliku!");
