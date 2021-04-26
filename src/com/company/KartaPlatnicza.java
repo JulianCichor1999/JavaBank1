@@ -53,12 +53,9 @@ public class KartaPlatnicza extends Osoba{
         System.out.printf("Masz %.2f pieniędzy na koncie!\n", srodki);
     }
 
-    public void wyplacPieniadze() {
-        Scanner scanner = new Scanner(System.in);
+    public void wyplacPieniadze(int wyplacanaKwota) {
         wyswietlBalans();
-        int wyplacanaKwota = -1;
-        System.out.print("Ile chcesz wypłacić pieniędzy: ");
-        wyplacanaKwota = Integer.parseInt(scanner.nextLine());
+
         if (wyplacanaKwota > srodki) {
             System.out.println("Przekroczyłeś stan konta!");
         } else if (wyplacanaKwota == 0) {
@@ -67,7 +64,6 @@ public class KartaPlatnicza extends Osoba{
             System.out.printf("Wypłacono %.2f pieniędzy z konta!\n", srodki);
             srodki -= wyplacanaKwota;
         }
-        scanner.close();
     }
 
     @Override

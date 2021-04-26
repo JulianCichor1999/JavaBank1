@@ -32,7 +32,11 @@ public class Main {
                 kartaPlatnicza.wyswietlBalans();
                 break;
             case 2:
-                kartaPlatnicza.wyplacPieniadze();
+                try {
+                    kartaPlatnicza.wyplacPieniadze(Integer.parseInt(scanner.nextLine()));
+                } catch (NumberFormatException e) {
+                    System.out.println("Błędny format danych!");
+                }
                 break;
             case 3:
 //                ...
@@ -41,5 +45,6 @@ public class Main {
                 System.out.println("Nie ma takiej opcji!");
         }
 
+        scanner.close();
     }
 }
