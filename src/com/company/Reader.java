@@ -41,4 +41,47 @@ public class Reader {
 
         return klienci;
     }
+
+    public static KartaPlatnicza getKarta(ArrayList<KartaPlatnicza> klienci) {
+        Scanner scanner = new Scanner(System.in);
+        KartaPlatnicza kartaPlatnicza = new KartaPlatnicza();
+
+        boolean jestKarta = false;
+        String nrKarty;
+        short pin = -1;
+
+        while (true) {
+            System.out.print("Wczytaj swój numer karty: ");
+            nrKarty = scanner.nextLine();
+            for (KartaPlatnicza kp : klienci) {
+                jestKarta = kp.getNumerKarty().equals(nrKarty.replaceAll("\\s+", ""));
+                if (jestKarta) {
+                    if (kp.getProducentKarty().toString().equals("visa")) {
+                        kartaPlatnicza = new KartaPlatniczaVisa(
+                                kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
+                    } else if (kp.getProducentKarty().toString().equals("mastercard")) {
+                        kartaPlatnicza = new KartaPlatniczaMastercard(
+                                kp.getImie(), kp.getNazwisko(), kp.getNumerKarty(), kp.getPIN(), kp.getSrodki());
+                    }
+                    break;
+                }
+            }
+            if (!jestKarta) {
+                System.out.println("Nie ma takiej karty w bazie!");
+                continue;
+            }
+
+            System.out.print("Podaj pin: ");
+            try {
+                pin = Short.parseShort(scanner.nextLine());
+            } catch (NumberFormatException e) {
+//                System.out.println("Podaj 4 cyfrowy kod pin!");
+            }
+
+            if (kartaPlatnicza.getPIN() == pin) break;
+            System.out.println("Błędny kod pin!");
+        }
+
+        return kartaPlatnicza;
+    }
 }
