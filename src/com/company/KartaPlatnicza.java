@@ -5,7 +5,7 @@ import java.util.Locale;
 public class KartaPlatnicza extends Osoba{
     private long numerKarty;
     private short PIN;
-    private double srodki;
+    protected double srodki;
     private Producenci producentKarty;
     public KartaPlatnicza(String imie, String nazwisko, long numerKarty, short PIN, double srodki, Producenci producentKarty) {
         super(imie, nazwisko);

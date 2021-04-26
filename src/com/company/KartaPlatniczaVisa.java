@@ -6,4 +6,8 @@ public class KartaPlatniczaVisa extends KartaPlatnicza{
         super(imie,nazwisko,numerKarty,PIN,srodki);
         setProducentKarty(Producenci.VISA);
     }
+
+    public void doliczSrodki(double noweSrodki) {
+        srodki += noweSrodki;
+    }
 }
