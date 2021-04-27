@@ -31,7 +31,7 @@ public class Reader {
                             imie, nazwisko, numerKonta, numerPIN, srodki);
                     klienci.add(kpMastercard);
                 } else {
-                    System.out.println("Nie wspieramy twojej karty!");
+                    System.out.println("Nie wspieramy Twojej karty!");
                 }
             }
             scanner.close();
@@ -71,7 +71,7 @@ public class Reader {
                 continue;
             }
 
-            System.out.print("Podaj pin: ");
+            System.out.print("Podaj PIN: ");
             try {
                 pin = Short.parseShort(scanner.nextLine());
             } catch (NumberFormatException e) {

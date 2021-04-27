@@ -12,7 +12,5 @@ public class KartaPlatniczaVisa extends KartaPlatnicza{
         setProducentKarty(Producenci.VISA);
     }
 
-    public void doliczSrodki(double noweSrodki) {
-        srodki += noweSrodki;
-    }
+
 }

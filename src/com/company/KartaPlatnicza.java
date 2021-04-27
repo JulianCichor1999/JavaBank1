@@ -3,8 +3,8 @@ package com.company;
 public class KartaPlatnicza extends Osoba{
     private long numerKarty;
     private short PIN;
-    protected double srodki;
-    private Producenci producentKarty;
+    protected static double srodki;
+    private static Producenci producentKarty;
 
     public KartaPlatnicza(String imie, String nazwisko, long numerKarty, short PIN, double srodki) {
         super(imie, nazwisko);
@@ -60,6 +60,10 @@ public class KartaPlatnicza extends Osoba{
             System.out.printf("Wypłacono %.2f pieniędzy z konta!\n", wyplacanaKwota);
             srodki -= wyplacanaKwota;
         }
+    }
+
+    public void doliczSrodki(double noweSrodki) {
+        srodki += noweSrodki;
     }
 
     @Override
