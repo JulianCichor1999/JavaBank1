@@ -64,7 +64,7 @@ public class KartaPlatnicza extends Osoba{
 
     public void doliczSrodki(double noweSrodki) {
         srodki += noweSrodki;
-        System.out.printf("Wpłacono %.2f pieniędzy do konta", noweSrodki);
+        System.out.printf("Wpłacono %.2f pieniędzy do konta\n", noweSrodki);
     }
 
     @Override
