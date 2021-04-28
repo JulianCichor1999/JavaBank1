@@ -1,8 +1,8 @@
 package com.company;
 
-public class KartaPlatnicza extends Osoba{
-    private long numerKarty;
-    private short PIN;
+public class KartaPlatnicza extends Osoba implements Transakcja{
+    private final long numerKarty;
+    private final short PIN;
     protected double srodki;
     private Producenci producentKarty;
 
@@ -57,12 +57,15 @@ public class KartaPlatnicza extends Osoba{
         } else if (wyplacanaKwota == 0) {
             throw new ZeroWyplataException();
         } else {
+            System.out.println(Polaczenie);
+            wyplacanie();
             System.out.printf("Wypłacono %.2f pieniędzy z konta!\n", wyplacanaKwota);
             srodki -= wyplacanaKwota;
         }
     }
 
     public void doliczSrodki(double noweSrodki) {
+        System.out.println(Polaczenie);
         srodki += noweSrodki;
         System.out.printf("Wpłacono %.2f pieniędzy do konta\n", noweSrodki);
     }
@@ -71,5 +74,15 @@ public class KartaPlatnicza extends Osoba{
     public String toString() {
         return String.format("%s %s, %s, %d, %.2f, %s",
                 getImie(), getNazwisko(), getNumerKarty(), getPIN(), getSrodki(), getProducentKarty());
+    }
+
+    @Override
+    public void wyplacanie() {
+        System.out.println("Trwa wypłacanie gotówki. ");
+    }
+
+    @Override
+    public void wplacanie() {
+        System.out.println("Oczekiwanie na wpłatę gotówki.");
     }
 }
