@@ -51,11 +51,11 @@ public class KartaPlatnicza extends Osoba{
         System.out.printf("Masz %.2f pieniędzy na koncie!\n", srodki);
     }
 
-    public void wyplacPieniadze(double wyplacanaKwota) {
+    public void wyplacPieniadze(double wyplacanaKwota) throws NiewystarczajaceSrodkiException, ZeroWyplataException {
         if (wyplacanaKwota > srodki) {
-            System.out.println("Nie można wypłacić, przekroczyłeś stan konta!");
+            throw new NiewystarczajaceSrodkiException();
         } else if (wyplacanaKwota == 0) {
-            System.out.println("Nie możesz wypłacić 0zł!");
+            throw new ZeroWyplataException();
         } else {
             System.out.printf("Wypłacono %.2f pieniędzy z konta!\n", wyplacanaKwota);
             srodki -= wyplacanaKwota;
