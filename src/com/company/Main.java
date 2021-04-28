@@ -35,7 +35,7 @@ public class Main {
                         break;
                     case 2:
                             System.out.print("Ile chcesz wypłacić pieniędzy: ");
-                            kartaPlatnicza.wyplacPieniadze(Double.parseDouble(scanner.nextLine()));
+                            kartaPlatnicza.wyplacPieniadze(Double.parseDouble(scanner.nextLine().replaceAll(",", ".")));
                         break;
                     case 3:
                         System.out.print("Ile chcesz wpłacic pieniędzy: ");
