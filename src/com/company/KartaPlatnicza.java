@@ -1,6 +1,6 @@
 package com.company;
 
-public class KartaPlatnicza extends Osoba implements Transakcja{
+public class KartaPlatnicza extends KartaPlatniczaAbstract {
     private final long numerKarty;
     private final short PIN;
     protected double srodki;
@@ -76,13 +76,4 @@ public class KartaPlatnicza extends Osoba implements Transakcja{
                 getImie(), getNazwisko(), getNumerKarty(), getPIN(), getSrodki(), getProducentKarty());
     }
 
-    @Override
-    public void wyplacanie() {
-        System.out.println("Trwa wypłacanie gotówki. ");
-    }
-
-    @Override
-    public void wplacanie() {
-        System.out.println("Oczekiwanie na wpłatę gotówki.");
-    }
 }
